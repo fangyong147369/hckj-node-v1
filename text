@@ -1,0 +1,5 @@
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/fangyong147369/hckj-node-v1.git
+git push -u origin master

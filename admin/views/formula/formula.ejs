@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+<html>
+<% include ../main/top.ejs %>
+<style>
+    button {
+        display: none;
+    }
+    .mtable{
+        margin-top: 10px;
+    }
+</style>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="col-sm-12">
+        <div class="ibox">
+            <div class="ibox-body">
+                <div class="fixed-table-toolbar">
+                    <table>
+                        <tr class="mtable">
+                            <td>
+                                <span style="margin-left: 1px">L:</span>
+                                <input name="l" id="l" type="text"  placeholder="请输入数字" style="width: 100px">
+                                <span id="ll" style="color: red;font-size: 18px;display: none">请输入0-100之间的数L</span>
+                            </td>
+                            <td>
+                                   <span style="width: 10px;padding-left: 30px ">
+                                   材质名称:
+                                </span>
+                                <select  data-placeholder="材质" name="materialName"
+                                         id="materialName" tabindex="2" aria-invalid="false" style="width: 100px">
+                                    <option value="0">全部</option>
+                                    <% for(var i = 0;i < com.biz.materialList.length;i++){ %>
+                                        <option value="<%= com.biz.materialList[i].name %>"><%= com.biz.materialList[i].name %></option>
+                                    <% } %>
+                                </select>
+
+                            </td>
+
+                        </tr>
+                        <tr class="mtable">
+                            <td>
+                            <span>A:  </span>
+                            <input name="a" id="a" type="text"  placeholder="请输入数字" style="width: 100px">
+                            <span id="aa" style="color: red;font-size: 18px;display: none">请输入-128-127之间的数A</span>
+                            </td>
+                            <td>
+                                <span style="width: 10px;padding-left: 30px">
+                                   光源名称:
+                                </span>
+                                <select  data-placeholder="光源名称" id="illuminantName"
+                                         name="illuminantName" tabindex="2" aria-invalid="false" disabled="disabled"
+                                         style="width: 100px; background-color: #EEEEEE;width: 100px">
+                                    <option value="0">全部</option>
+                                    <% for(var i = 0;i < com.biz.illuminantList.length;i++){ %>
+                                        <option readonly="readonly"
+                                                value="<%= com.biz.illuminantList[2].name %>" selected><%= com.biz.illuminantList[2].name %></option>
+                                    <% } %>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="mtable">
+                            <td>
+                            <span>B:  </span>
+                            <input name="b" id="b" type="text"  placeholder="请输入数字" style="width: 100px">
+                            <span id="bb" style="color: red;font-size: 18px;display: none">请输入-128-127之间的数B</span>
+                            </td>
+                            <td >
+                                 <span style="width: 10px;padding-left: 30px ">
+                                   光源角度:
+                                </span>
+                                <select  data-placeholder="光源角度" name="angle"
+                                         id="angle" tabindex="2" aria-invalid="false" style="width: 100px">
+                                    <option value="0">全部</option>
+                                    <% for(var i = 0;i < com.biz.angleList.length;i++){ %>
+                                        <option value="<%= com.biz.angleList[i].angle %>" selected><%= com.biz.angleList[i].angle %> 度角</option>
+                                    <% } %>
+                                </select>
+                            </td>
+
+                        </tr>
+                        <tr class="mtable" >
+                            <td>
+                                <span style="margin-left: -4px">dE:</span><input name="evl" id="evl" type="text"  placeholder="默认值" style="width: 100px">
+                            </td>
+                            <td>
+                                     <span style="width: 10px;padding-left: 30px">
+                                   配方类型:
+                                    </span>
+                                <select  data-placeholder="配方类型" name="type" id="type"
+                                         tabindex="2" aria-invalid="false" style="width: 100px">
+                                    <option value="0" selected>全部</option>
+                                    <% for(var i = 0;i < com.biz.typeList.length;i++){ %>
+                                        <option value="<%= com.biz.typeList[i].type %>" <%= com.biz.typeList[i].type==1?"selected":"" %> ><%= com.biz.typeList[i].name %></option>
+                                    <% } %>
+                                </select>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <div class="columns pull-left" >
+                        <button class="btn btn-success" onclick="OnMeasurementColor()" id="MeasurementButton"
+                                style="background-color: #00B83F;margin-top: -140px;margin-left:180px;width: 80px;height: 60px;display: none">
+                            测色
+                        </button>
+                    </div>
+                    <div class="columns pull-left" style="margin-left:10%;">
+                        <button class="btn btn-success" onclick="reLoad()"
+                                style="margin-top: -140px;width: 80px;height: 60px;margin-left: 280px">查找
+                        </button>
+                    </div>
+                </div>
+                <table id="exampleTable" data-mobile-responsive="true">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../main/bottom.ejs %>
+<script type="text/javascript">
+
+    $(function () {
+        load();
+    });
+
+    function load() {
+        $('#exampleTable')
+            .bootstrapTable(
+                {
+                    method: 'post', // 服务器数据的请求方式 get or post
+                    url: "/formula/getFormulaList", // 服务器数据的加载地址
+                    showRefresh: false,//是否显示刷新按钮
+                    showColumns: false, // 是否显示内容下拉框（选择显示的列）
+                    showToggle: false,
+                    iconSize: 'outline',
+                    toolbar: '#exampleToolbar',
+                    striped: true, // 设置为true会有隔行变色效果
+                    dataType: "json", // 服务器返回的数据类型
+                    pagination: false, // 设置为true会在底部显示分页条
+                    // queryParamsType : "limit",
+                    // //设置为limit则会发送符合RESTFull格式的参数
+                    singleSelect: false, // 设置为true将禁止多选
+                    contentType: "application/x-www-form-urlencoded",
+                    // //发送到服务器的数据编码类型
+                    pageSize: 10, // 如果设置了分页，每页数据条数
+                    pageNumber: 1, // 如果设置了分布，首页页码
+                    //dataField: "data",//这是返回的json数组的key.默认好是"rows".这里只有前后端约定好就行
+                    pageList: [50, 100, 200, 500],//分页步进值
+                    search: false, // 是否显示搜索框
+                    sidePagination: "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
+                    queryParams: function (params) {
+                        return {
+                            model: {
+                                l: $('#l').val() || 0,
+                                a: $('#a').val() || 0,
+                                b: $('#b').val() || 0,
+                                type: $('#type').val() || 0,
+                                angle:$('#angle').val() || 0,
+                                illuminantName: $('#illuminantName').val() || '',
+                                materialName: $('#materialName').val() || '',
+                                evl: $('#evl').val() || 1,
+                            }
+                        };
+                    },
+                    columns: [
+                        {
+                            field: 'id',
+                            align: 'center',
+                            title: 'ID'
+                        },
+                        // {
+                        //     field: 'colorantModel.rgb',
+                        //     align: 'center',
+                        //     title: '颜色'
+                        // },
+                        {
+                            field: 'name',
+                            align: 'center',
+                            title: '配方名称'
+                        },
+                        {
+                            field: 'illuminantName',
+                            align: 'center',
+                            title: '光源名称'
+                        },
+                        {
+                            field: 'sampleName',
+                            align: 'center',
+                            title: '色样号'
+                        },
+                        {
+                            field: 'type',
+                            align: 'center',
+                            title: '配方类型',
+                            formatter: function (value, row, index) {
+                                if (value == '1') {
+                                    return "实验室配方";
+
+                                }
+                                return "车间配方";
+                            }
+                        }
+                        ,
+                        {
+                            field: 'evl',
+                            align: 'center',
+                            title: '色差',
+                            formatter: function (value, row, index) {
+                                return value.toFixed(4);
+                            }
+                        }
+                        ,
+                        {
+                            field: 'l',
+                            align: 'center',
+                            title: 'L',
+                            formatter: function (value, row, index) {
+                                return value.toFixed(4);
+                            }
+                        },
+                        {
+                            field: 'a',
+                            align: 'center',
+                            title: 'A',
+                            formatter: function (value, row, index) {
+                                return value.toFixed(4);
+                            }
+                        },
+                        {
+                            field: 'b',
+                            align: 'center',
+                            title: 'B',
+                            formatter: function (value, row, index) {
+                                return value.toFixed(4);
+                            }
+                        },
+                        {
+                            field: 'materialName',
+                            align: 'center',
+                            title: '材质名称'
+                        },
+                        {
+                            field: 'concentration',
+                            align: 'center',
+                            title: '染料名称',
+                            formatter: function (value, row, index) {
+                                if (value.length > 0 && value[0]) {
+                                    return value[0].dyeName;
+
+                                }
+                                return "";
+                            }
+                        },
+                        {
+                            field: "concentration",
+                            align: 'center',
+                            title: '浓度(%)',
+                            formatter: function (value, row, index) {
+                                if (value.length > 0 && value[0]) {
+                                    return value[0].concentration;
+                                }
+                                return "";
+                            }
+                        }
+                        ,
+                        {
+                            field: 'concentration',
+                            align: 'center',
+                            title: '染料名称',
+                            formatter: function (value, row, index) {
+                                if (value.length > 0 && value[1]) {
+                                    return value[1].dyeName;
+
+                                }
+                                return "";
+                            }
+                        },
+                        {
+                            field: "concentration",
+                            align: 'center',
+                            title: '浓度(%)',
+                            formatter: function (value, row, index) {
+                                if (value.length > 0 && value[1]) {
+                                    return value[1].concentration;
+                                }
+                                return "";
+                            }
+                        },
+                        {
+                            field: 'concentration',
+                            align: 'center',
+                            title: '染料名称',
+                            formatter: function (value, row, index) {
+                                if (value.length > 0 && value[2]) {
+                                    return value[2].dyeName;
+
+                                }
+                                return "";
+                            }
+                        },
+                        {
+                            field: "concentration",
+                            align: 'center',
+                            title: '浓度(%)',
+                            formatter: function (value, row, index) {
+                                if (value.length > 0 && value.length==3) {
+                                    return value[2].concentration;
+                                }
+                                if (value.length >3 ) {
+                                    var a = '<a href="javascript:void(0);" mce_href="#"  title="浓度" onclick="showAll(' + row.id + ')">...</i></a> ';
+                                    return a;
+                                }
+                                return "";
+                            }
+                        },
+                        {
+                            title: '操作',
+                            field: '',
+                            align: 'center',
+                            formatter: function (value, row, index) {
+                                var e = '<a class="btn btn-primary btn-sm" target="_blank" href="/formula/showFormulaById/?id=' + row.id + '" mce_href="#"  title="查看" >详情<i class="fa fa-edit"></i></a> ';
+                                var d = '<a class="btn btn-warning btn-sm" href="#" title="删除"  mce_href="#" onclick="remove(\'' + row.id + '\')">删除<i class="fa fa-remove"></i></a> ';
+                                return e + d;
+                            }
+                        }
+                    ],
+                    onLoadSuccess: function () {  //加载成功时执行
+                        // layer.msg("加载成功", {time: 1, icon: 1});
+                    },
+                    onLoadError: function () {  //加载失败时执行
+                        layer.msg("加载数据失败", {time: 1500, icon: 2});
+                    }
+                });
+    }
+
+    function reLoad() {
+        if (parseFloat($("#l").val()) > 100 || parseFloat($("#l").val()) < 0) {
+            $("#ll").show();
+            return false;
+        } else {
+            $("#ll").hide()
+        }
+        if (parseFloat($("#a").val()) > 127 || parseFloat($("#a").val()) < -128) {
+            $("#aa").show();
+            return false;
+        } else {
+            $("#aa").hide();
+        }
+        if (parseFloat($("#b").val()) > 127 || parseFloat($("#b").val()) < -128) {
+            $("#bb").show();
+            return false;
+        } else {
+            $("#bb").hide();
+        }
+        $('#exampleTable').bootstrapTable('refresh');
+    }
+
+    /** 查看通过配方id **/
+    function showFormulaById(id) {
+        layer.open({
+            type: 2,
+            title: '配方详情页',
+            maxmin: true,
+            shadeClose: false, // 点击遮罩关闭层
+            area: ['100%', '100%'],
+            content: '/formula/showFormulaById/?id=' + id
+        });
+    }
+
+    function remove(id) {
+        layer.confirm('确认删除此此配方吗？', {
+            btn: ['确定', '取消']
+        }, function () {
+            $.ajax({
+                url: "/formula/removeFormulaById",
+                type: "post",
+                data: {
+                    model: {id: id}
+                }, success: function (res) {
+                    if (res.code == 1) {
+                        layer.msg(res.message);
+                        reLoad();
+                    } else {
+                        layer.msg(res.message);
+                    }
+                }
+            });
+        })
+    }
+
+    function showAll(id) {
+        layer.open({
+            type: 2,
+            title: '配方浓度表',
+            maxmin: true,
+            shadeClose: true, // 点击遮罩关闭层
+            area: ['40%', '60%'],
+            content: '/formula/concentration/?formulaId=' + id
+        });
+    }
+
+    function showMeasurementButton() {
+        $("#MeasurementButton").show()
+    }
+
+    //验证字符串是否是数字
+    function checkNumber(theObj) {
+        var reg = /^[0-9]+.?[0-9]*$/;
+        if (reg.test(theObj)) {
+            return true;
+        }
+        return false;
+    }
+
+    //获得LAB值
+    function getLABFromClient(l, a, b) {
+        $("#l").val(l);
+        $("#a").val(a);
+        $("#b").val(b);
+    }
+</script>
+
+</body>
+</html>

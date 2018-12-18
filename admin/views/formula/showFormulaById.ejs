@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-transform ">
+<style>
+    html {font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/ ;margin: 0 auto;}
+    body {font-size: 1.4rem;/*1.4 × 10px = 14px */}
+    h1 { font-size: 2.4rem;/*2.4 × 10px = 24px*/}
+    body div {
+        margin: 0 auto;
+    }
+    #d_0 {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        padding-top: 30px;
+        margin-top: -30px;
+    }
+
+    #d_1 {
+        background-color: white;
+        width: 80%;
+        height: 80%;
+        padding-top: 40px;
+
+    }
+
+
+    #right{
+        background-color: white;
+        margin-left: 340px;
+        margin-top: -70px;
+        width: 300px;
+    }
+    #right input{
+       border: none;
+    }
+    #left input{
+        border: none;
+    }
+    #right_2 {
+        background-color: white;
+        margin-left: 0px;
+        margin-top: 90px;
+        width: 60%;
+        padding-bottom: 5px;
+        height: 60px;
+    }
+
+    #right_2 input {
+        margin-right: 1%;
+        margin-top: -20px;
+        width:100px;
+        height: 20px;
+        border:none;
+    }
+
+    #right_2 span {
+        margin-right: 10px;
+        margin-left: 5px;
+    }
+    #left_1 input {
+        height: 25px;
+        font-size: 17px;
+        border-top-color: black;
+    }
+
+    #left_1 span {
+        font-weight:bold;
+        font-size: 19px;
+        color: black;
+    }
+
+    #right_1 span {
+        font-weight:bold;
+        font-size: 19px;
+        color: black;
+    }
+
+    #right_1 input {
+        height: 25px;
+        font-size: 17px;
+        border-top-color: black;
+    }
+    #mid_right table {
+        width: 100%;
+
+    }
+
+    #mid_left {
+        float: right;
+        width:50%;
+        margin-top: -64px;
+        background-color: white;
+    }
+
+    #mid_left table {
+        width: 100%;
+    }
+
+    #mid #mid_left table tr td{
+        width:80px;
+    }
+    #bottom {
+    <%if(conList!=null&&conList.length<=2){%>
+        margin-top:160px;
+    <%}else if(conList!=null&&conList.length==3){%>
+        margin-top:190px;
+    <%}else if(conList!=null&&conList.length==4){%>
+        margin-top:220px;
+    <%}else if(conList!=null&&conList.length==5){%>
+        margin-top:250px;
+    <%}else if(conList!=null&&conList.length==6){%>
+        margin-top:280px;
+    <%}else if(conList!=null&&conList.length==7){%>
+        margin-top:310px;
+    <%}else if(conList!=null&&conList.length==8){%>
+        margin-top:340px;
+    <%}else if(conList!=null&&conList.length==9){%>
+        margin-top:370px;
+    <%}else if(conList!=null&&conList.length==10){%>
+        margin-top:400px;
+    <%}else if(conList!=null&&conList.length==11){%>
+        margin-top:430px;
+    <%}%>
+       margin-right: 20px;
+       margin-left: 0px;
+       width: 96%;
+       background-color: white;
+   }
+
+   #bottom_1 {
+       float: left;
+   }
+    .bm{
+        width: 50px;
+        font-weight: normal;
+    }
+   table tr td {
+       vertical-align: middle;
+       text-align: center;
+   }
+    table{
+        border: black;
+    }
+    #d_0 #d_1 #left input{
+        width: 140px
+    }
+    #d_0 #d_1 #right input{
+        width: 140px
+    }
+</style>
+<body>
+<h1 style="margin-left: 37%;font-size: 35px">配  方  详  情</h1>
+<div id="d_0">
+   <div id="d_1">
+        <div id="left">
+           <strong>配方名称</strong><input readonly style="margin-left: 12px;" value=" <%= model && model.name || '' %>"><br><br>
+            <strong>色</strong><strong style="margin-left: 8px">样</strong><strong style="margin-left: 8px;margin-right: 10px">号</strong><input readonly
+                    value=" <%= model && model.sampleName || '' %>"><br><br>
+        </div>
+        <div id="right">
+            <strong style="margin-right: 18px" >配方类型</strong><input  readonly value="<%= model && model.type == 1 ? '车间配方' : '实验室配方' %>"><br><br>
+            <strong>材</strong><strong style="margin-left: 38px;margin-right: 8px">质</strong><input readonly
+                    value="<%= model && model.materialModel ? model.materialModel.name : '' %>"><br>
+        </div>
+
+        <div id="right_2">
+            <h4>
+            <strong style="margin-right: 18px" >光源</strong><input readonly
+                   value="<%= model && model.colorantModel&& model.colorantModel.illuminantModel ? model.colorantModel.illuminantModel.name : '' %>">
+            </h4>
+            <h4 style="margin-top: 0px;margin-bottom:5px">颜色Lab值</h4>
+            <strong style="margin-right: 5px;">L:</strong><input readonly value="<%= model && model.colorantModel ? (model.colorantModel.l).toFixed(4) : '' %>"><br><br>
+            <strong style="margin-right: 7px">a:</strong><input readonly value="<%= model && model.colorantModel ? (model.colorantModel.a).toFixed(4) : '' %>"><br><br>
+            <strong style="margin-right: 6px">b:</strong><input readonly value="<%= model && model.colorantModel ? (model.colorantModel.b).toFixed(4) : '' %>">
+        </div>
+
+        <div id="mid">
+            <%if(conList!=null&&conList.length>0){%>
+            <div id="mid_left">
+                <strong style="font-weight: bold">配方浓度</strong>
+                <table border="1" width='500' cellpadding='5' cellspacing='0' style="margin-top: 13px">
+                    <thead>
+                        <th>染料名称</th>
+                        <th>染料类型</th>
+                        <th>染料浓度</th>
+                    </thead>
+                    <tbody>
+                    <%for(var i=0;i<conList.length;i++){%>
+                    <tr>
+                        <td><%=conList[i].dyeModel?conList[i].dyeModel.name:""%></td>
+                        <td><%=conList[i].dyeModel?conList[i].dyeTypeModel.name:""%></td>
+                        <td><%=conList[i].concentration%></td>
+                    </tr>
+                    <%}%>
+                    </tbody>
+
+                </table>
+            </div>
+            <%}%>
+        </div>
+        <div id="bottom">
+            <h4 style="margin: 10px 0;font-weight: bold;">反射率</h4>
+            <div id="bottom_1">
+                <table border="1" cellspacing='0' style="width:100%;border-right-width:0px ">
+                    <tr>
+                        <td style="width: 100px"><strong>波长</strong></td>
+                        <td class="bm">0</td>
+                        <td class="bm">10</td>
+                        <td class="bm">20</td>
+                        <td class="bm">30</td>
+                        <td class="bm">40</td>
+                        <td class="bm">50</td>
+                        <td class="bm">60</td>
+                        <td class="bm">70</td>
+                        <td class="bm">80</td>
+                        <td class="bm">90</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 120px"><strong >400</strong></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection400).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection410).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection420).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection430).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection440).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection450).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection460).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection470).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection480).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection490).toFixed(4) : '' %></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 120px"><strong>500</strong></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection500).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection510).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection520).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection530).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection540).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection550).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection560).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection570).toFixed(4) : '' %></td>
+                        <td class="bm" ><%= model && model.colorantModel ? (model.colorantModel.reflection580).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection590).toFixed(4) : '' %></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 120px"><strong >600</strong></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection600).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection610).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection620).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection630).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection640).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection650).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection660).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection670).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection680).toFixed(4) : '' %></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection690).toFixed(4) : '' %></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 120px"><strong >700</strong></td>
+                        <td class="bm"><%= model && model.colorantModel ? (model.colorantModel.reflection700).toFixed(4) : '' %></td>
+                        <td class="bm"></td>
+                        <td class="bm"></td>
+                        <td class="bm"></td>
+                        <td class="bm"></td>
+                        <td class="bm"></td>
+                        <td class="bm"></td>
+                        <td class="bm"></td>
+                        <td class="bm"></td>
+                        <td class="bm"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+       <div style="width: 40%;height: 80px;margin-top:41%;margin-left:75%">
+           <h5><strong>打印时间:</strong><span style="font-weight: bold;margin-left: 7px;margin-bottom: 15px"><%=new Date().Format("yyyy年MM月dd日")%></span></h5>
+           <h5 style="margin-top: -10px"><strong style="margin-left: 70px;">操作员:<%=req.session.user?req.session.user.userName:""%></strong></h5>
+       </div>
+    </div>
+
+</div>
+</body>
+</html>
