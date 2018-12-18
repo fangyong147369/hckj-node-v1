@@ -7,8 +7,8 @@ MAINTAINER fangyong
 # 执行命令，创建文件夹
 RUN mkdir -p /home/nodejs/hckj-node-v1
 
-# 将Order目录拷贝到镜像里
-ADD ./hckj-node-v1 /home/nodejs/hckj-node-v1
+# 将hckj-node-v1目录拷贝到镜像里
+ADD ../../hckj-node-v1 /home/nodejs/hckj-node-v1
 
 # 指定工作目录
 WORKDIR /home/nodejs/hckj-node-v1
