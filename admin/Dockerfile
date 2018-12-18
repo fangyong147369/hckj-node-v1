@@ -14,8 +14,8 @@ RUN npm install
 WORKDIR /home/nodejs/hckj-node-v1
 
 # 安装依赖及构建node应用
-RUN npm install
-RUN npm build
+#RUN npm install
+#RUN npm build
 
 # 配置系统变量，指定端口
 ENV HOST 0.0.0.0
@@ -25,4 +25,4 @@ ENV PORT 4700
 EXPOSE 4700
 
 # 容器启动命令
-CMD ["npm", "start"]
+CMD ["node", "sever.js"]
