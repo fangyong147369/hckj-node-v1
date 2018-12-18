@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9f609c-27b6-4e71-b4fb-80cae2c5e4de" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/admin/Dockerfile" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,14 +23,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Dockerfile" value="44" />
+          <entry key="Dockerfile" value="52" />
           <entry key="js" value="22" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Dockerfile" value="44" />
+          <entry key="Dockerfile" value="52" />
           <entry key="JavaScript" value="22" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
@@ -55,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="288">
+              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -429,9 +428,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="384" />
-    <option name="y" value="93" />
-    <option name="width" value="1776" />
+    <option name="x" value="77" />
+    <option name="y" value="29" />
+    <option name="width" value="1497" />
     <option name="height" value="878" />
   </component>
   <component name="ProjectView">
@@ -502,7 +501,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545122130203</updated>
-      <workItem from="1545122131944" duration="2815000" />
+      <workItem from="1545122131944" duration="3557000" />
     </task>
     <task id="LOCAL-00001" summary="方勇">
       <created>1545122456032</created>
@@ -522,14 +521,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2815000" />
+    <option name="totallyTimeSpent" value="3557000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="384" y="93" width="1776" height="878" extended-state="0" />
+    <frame x="77" y="29" width="1497" height="878" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17836593" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2124743" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
@@ -574,8 +573,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="288">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
     </entry>

@@ -8,8 +8,8 @@ MAINTAINER fangyong
 RUN mkdir -p /home/nodejs/hckj-node-v1
 
 # 将hckj-node-v1目录拷贝到镜像里
-ADD ../../hckj-node-v1/ ./home/nodejs/hckj-node-v1
-
+COPY ../../   /home/nodejs/hckj-node-v1
+RUN npm install
 # 指定工作目录
 WORKDIR /home/nodejs/hckj-node-v1
 
