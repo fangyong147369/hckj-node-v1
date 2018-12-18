@@ -5,13 +5,13 @@ FROM node:8.9-alpine
 MAINTAINER fangyong
 
 # 执行命令，创建文件夹
-RUN mkdir -p /home/nodejs/hckj-node-v1
+RUN mkdir -p /home/nodejs/hckj-node-v1/admin
 
 # 将hckj-node-v1目录拷贝到镜像里
-COPY . /home/nodejs/hckj-node-v1
+COPY . /home/nodejs/hckj-node-v1/admin
 RUN npm install
 # 指定工作目录
-WORKDIR /home/nodejs/hckj-node-v1
+WORKDIR /home/nodejs/hckj-node-v1/admin
 
 # 安装依赖及构建node应用
 #RUN npm install
