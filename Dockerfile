@@ -1,28 +1,14 @@
-# 引用镜像
+#制定node镜像的版本
 FROM node:8.9-alpine
-
-# 作者
+#声明作者
 MAINTAINER fangyong
-
-# 执行命令，创建文件夹
-RUN mkdir -p /home/nodejs/
-
-# 将hckj-node-v1目录拷贝到镜像里
-ADD  /home/nodejs/hckj-node-v1/  /mydir/
-COPY . /home/nodejs
-# 指定工作目录
-WORKDIR /home/nodejs/
-
-# 安装依赖及构建node应用
-#RUN npm install
-#RUN npm build
-
-# 配置系统变量，指定端口
-ENV HOST 0.0.0.0
-ENV PORT 4700
-
-# 将端口4700开放
-EXPOSE 4700
-
-# 容器启动命令
-CMD ["node", "sever.js"]
+#移动当前目录下面的文件到app目录下
+ADD . /app/
+#进入到app目录下面，类似cd
+WORKDIR /app
+#安装依赖
+RUN npm install
+#对外暴露的端口
+EXPOSE 3000
+#程序启动脚本
+CMD ["npm", "start"]

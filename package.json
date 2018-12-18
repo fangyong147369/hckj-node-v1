@@ -3,7 +3,7 @@
   "name": "hckj",
   "description": "koa-hckj",
   "scripts": {
-    "start": "node  server.js"
+    "start": "node  docker.js"
   },
   "dependencies": {
     "MD5": "^1.3.0",
