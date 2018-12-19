@@ -90,12 +90,14 @@ render(app, {
     root: path.join(__dirname, '/admin/views'),
     viewExt: 'ejs'
 });
+
 /**
  * 对于未捕获错误，可以设置error事件的监听函数。
  */
 app.on('error', function (err) {
     console.log('server error ', err);
 });
+
 
 app.listen(4700, () => {
     console.log('node 服务端口号:4700  from Docker')
