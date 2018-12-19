@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8f9f609c-27b6-4e71-b4fb-80cae2c5e4de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/controllers/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controllers/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/controllers/operator.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controllers/operator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/system.js" beforeDir="false" afterPath="$PROJECT_DIR$/base/system.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker.js" beforeDir="false" afterPath="$PROJECT_DIR$/docker.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -27,7 +30,7 @@
         <counts>
           <entry key="Dockerfile" value="93" />
           <entry key="ejs" value="32" />
-          <entry key="js" value="127" />
+          <entry key="js" value="193" />
           <entry key="json" value="20" />
           <entry key="txt" value="2" />
         </counts>
@@ -37,25 +40,25 @@
           <entry key="Dockerfile" value="93" />
           <entry key="EJS" value="32" />
           <entry key="JSON" value="20" />
-          <entry key="JavaScript" value="127" />
+          <entry key="JavaScript" value="193" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Dockerfile" value="9" />
+          <entry key="Dockerfile" value="10" />
           <entry key="dockerjs" value="1" />
           <entry key="ejs" value="1" />
-          <entry key="js" value="13" />
+          <entry key="js" value="21" />
           <entry key="json" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Dockerfile" value="9" />
+          <entry key="Dockerfile" value="10" />
           <entry key="EJS" value="1" />
           <entry key="JSON" value="4" />
-          <entry key="JavaScript" value="13" />
+          <entry key="JavaScript" value="21" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -66,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="93" column="3" lean-forward="true" selection-start-line="93" selection-start-column="3" selection-end-line="93" selection-end-column="3" />
+            <state relative-caret-position="330">
+              <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -90,9 +93,12 @@
         <option value="$PROJECT_DIR$/admin/server.js" />
         <option value="$PROJECT_DIR$/serverout.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/tools/gloabVariable.js" />
         <option value="$PROJECT_DIR$/admin/views/formula/formula.ejs" />
+        <option value="$PROJECT_DIR$/Dockerfile" />
+        <option value="$PROJECT_DIR$/admin/controllers/main.js" />
+        <option value="$PROJECT_DIR$/base/system.js" />
+        <option value="$PROJECT_DIR$/admin/controllers/operator.js" />
         <option value="$PROJECT_DIR$/docker.js" />
       </list>
     </option>
@@ -282,9 +288,9 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="130" />
-    <option name="y" value="33" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="153" />
+    <option name="y" value="63" />
     <option name="width" value="1940" />
     <option name="height" value="963" />
   </component>
@@ -300,6 +306,32 @@
             <path>
               <item name="hckj-node-v1" type="b2602c69:ProjectViewProjectNode" />
               <item name="hckj-node-v1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hckj-node-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hckj-node-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hckj-node-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hckj-node-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hckj-node-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hckj-node-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="uglify-js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hckj-node-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hckj-node-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="uglify-js" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -332,7 +364,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.server.js">
+  <component name="RunManager" selected="Node.js.docker.js">
     <configuration name="docker.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/docker.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -356,8 +388,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="Node.js.docker.js" />
+        <item itemvalue="npm.start" />
         <item itemvalue="Node.js.server.js" />
       </list>
     </recent_temporary>
@@ -374,7 +406,7 @@
       <option name="presentableId" value="Default" />
       <updated>1545122130203</updated>
       <workItem from="1545122131944" duration="9283000" />
-      <workItem from="1545185685899" duration="2906000" />
+      <workItem from="1545185685899" duration="4599000" />
     </task>
     <task id="LOCAL-00001" summary="方勇">
       <created>1545122456032</created>
@@ -397,29 +429,43 @@
       <option name="project" value="LOCAL" />
       <updated>1545189133711</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="方勇">
+      <created>1545189662422</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1545189662422</updated>
+    </task>
+    <task id="LOCAL-00005" summary="方勇">
+      <created>1545189931968</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1545189931968</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12189000" />
+    <option name="totallyTimeSpent" value="13882000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="130" y="33" width="1940" height="963" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83243245" visible="true" weight="0.13774973" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8329177" visible="true" weight="0.13804004" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.16756757" side_tool="true" visible="true" weight="0.13774973" />
+      <window_info id="npm" order="2" sideWeight="0.1670823" side_tool="true" visible="true" weight="0.13804004" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4758454" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12920739" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32971016" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.247557" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.49125168" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -434,6 +480,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="方勇" />
     <option name="LAST_COMMIT_MESSAGE" value="方勇" />
   </component>
@@ -467,13 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/gloabVariable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -494,10 +535,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/controllers/system.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6274" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1536">
+          <caret line="32" column="37" lean-forward="true" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/system.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/controllers/operator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="68" column="5" lean-forward="true" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/node_modules/uglify-js/lib/scope.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="176" column="17" lean-forward="true" selection-start-line="176" selection-start-column="17" selection-end-line="176" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/docker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="93" column="3" lean-forward="true" selection-start-line="93" selection-start-column="3" selection-end-line="93" selection-end-column="3" />
+        <state relative-caret-position="330">
+          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
         </state>
       </provider>
     </entry>

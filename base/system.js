@@ -23,13 +23,13 @@ exports.findOperator = function* (data) {
         try {
             let result = yield midx('/manage/operator/signIn', data);
             if(result!=null&&result.code==="ECONNREFUSED"){
-                return {err:"服务器连接失败！",address:com.env.core_path+result.port,code:2,mes:"服务器地址错误或服务器已关闭！"};
+                return {err:"服务器连接失败！",address:com.env.core_path+result.port,code:2,message:"服务器地址错误或服务器已关闭！"};
             }if(result==="connect ECONNREFUSED 127.0.0.1:8080"){
-                return {err:"服务器连接失败！",address:com.env.core_path+result.port,code:2,mes:"服务器地址错误或服务器已关闭！"};
+                return {err:"服务器连接失败！",address:com.env.core_path+result.port,code:2,message:"服务器地址错误或服务器已关闭！"};
             }
             return result;
         } catch (error) {
-            return {code: -1, message: error};
+            return {code: -1, message:"服务器连接异常！"};
         }
     })
 }

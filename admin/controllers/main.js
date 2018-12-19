@@ -29,8 +29,6 @@ exports.findSuppervisor=function*(){
     let userName=this.request.body.username;
     let password=this.request.body.password;
     let body=yield biz_suppervisors.findSuppervisor(userName,password);
-    console.log("body:"+JSON.stringify(body))
-
     if(body.error || !body.model){
         this.body={error:body.error};
     }else{

@@ -34,8 +34,9 @@ app.use(session({
 }))
     .use(router.routes())
     .use(router.allowedMethods())
-//global.core_path="http://192.168.239.134:8088/sys_api-1.0.0.0";//测试环境
-global.core_path="http://192.168.2.84:8080";//开发环境
+    global.core_path="http://localhost:8088/sys_api-1.0.0.0";//测试环境
+ // global.core_path="http://192.168.239.134:8088/sys_api-1.0.0.0";//测试环境
+ // global.core_path="http://localhost:8080";//开发环境
 console.log(__dirname);
 console.log(path.dirname(__dirname));
 app.use(koa_static('./admin/public'));

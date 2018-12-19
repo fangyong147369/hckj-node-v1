@@ -70,6 +70,7 @@ exports.findOperatorFromPC = function* () {
     if (body != null && body.code == 1) {
          this.session.user = body.data;
     }
+
     this.body = body;
 
 }
