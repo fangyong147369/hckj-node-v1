@@ -34,7 +34,8 @@ app.use(session({
 }))
     .use(router.routes())
     .use(router.allowedMethods())
-global.core_path="http://192.168.239.134:8088/sys_api-1.0.0.0";//公共配置
+//global.core_path="http://192.168.239.134:8088/sys_api-1.0.0.0";//测试环境
+global.core_path="http://192.168.2.84:8080";//开发环境
 console.log(__dirname);
 console.log(path.dirname(__dirname));
 app.use(koa_static('./admin/public'));
@@ -81,7 +82,6 @@ app.use(function* () {
 fs.readdirSync('./admin/routes').forEach(function (file) {
     if (file.indexOf(".js") > -1){
         require('./admin/routes/' + file.replace(/^(.+)\.js$/, "$1"))(router);
-        console.log("router:"+'./admin/routes/' + file.replace(/^(.+)\.js$/, "$1"))
     }
 })
 

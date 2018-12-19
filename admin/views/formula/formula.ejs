@@ -90,22 +90,22 @@
                                          tabindex="2" aria-invalid="false" style="width: 100px">
                                     <option value="0" selected>全部</option>
                                     <% for(var i = 0;i < com.biz.typeList.length;i++){ %>
-                                        <option value="<%= com.biz.typeList[i].type %>" <%= com.biz.typeList[i].type==1?"selected":"" %> ><%= com.biz.typeList[i].name %></option>
+                                        <option value="<%= com.biz.typeList[i].type %>" <%= com.biz.typeList[i].type==0?"selected":"" %> ><%= com.biz.typeList[i].name %></option>
                                     <% } %>
                                 </select>
                             </td>
                         </tr>
 
                     </table>
-                    <div class="columns pull-left" >
+                    <div class="columns pull-left" style="margin-left:9%;">
                         <button class="btn btn-success" onclick="OnMeasurementColor()" id="MeasurementButton"
-                                style="background-color: #00B83F;margin-top: -140px;margin-left:180px;width: 80px;height: 60px;display: none">
+                                style="background-color: #00B83F;margin-top: -140px;margin-left:240px;width: 80px;height: 60px;">
                             测色
                         </button>
                     </div>
-                    <div class="columns pull-left" style="margin-left:10%;">
+                    <div class="columns pull-left" style="margin-left:9%;">
                         <button class="btn btn-success" onclick="reLoad()"
-                                style="margin-top: -140px;width: 80px;height: 60px;margin-left: 280px">查找
+                                style="margin-top: -140px;width: 80px;height: 60px;margin-left:-60px">查找
                         </button>
                     </div>
                 </div>
@@ -193,10 +193,14 @@
                             title: '配方类型',
                             formatter: function (value, row, index) {
                                 if (value == '1') {
+                                    return "车间配方";
+
+                                }else  if (value == '0') {
                                     return "实验室配方";
 
+                                }else {
+                                    return "不详";
                                 }
-                                return "车间配方";
                             }
                         }
                         ,
