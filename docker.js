@@ -26,16 +26,17 @@ app.use(session({
         signed: true
     },
     store: redisStore({
-        host: "192.168.239.134",
-        port: 6377,
+        host: "192.168.2.68",
+        port: 6379,
+        database: 0,
         prefix: "/",
         ttl: 60*1000
     })
 }))
     .use(router.routes())
     .use(router.allowedMethods())
-    global.core_path="http://localhost:8088/sys_api-1.0.0.0";//测试环境
- // global.core_path="http://192.168.239.134:8088/sys_api-1.0.0.0";//测试环境
+//  global.core_path="http://localhost:8080/sys_api-1.0.0.0";//测试环境
+ global.core_path="http://192.168.2.68:8080/sys_api-1.0.0.0";//测试环境
  // global.core_path="http://localhost:8080";//开发环境
 console.log(__dirname);
 console.log(path.dirname(__dirname));

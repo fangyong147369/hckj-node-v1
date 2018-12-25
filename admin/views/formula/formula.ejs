@@ -5,7 +5,8 @@
     button {
         display: none;
     }
-    .mtable{
+
+    .mtable {
         margin-top: 10px;
     }
 </style>
@@ -19,15 +20,15 @@
                         <tr class="mtable">
                             <td>
                                 <span style="margin-left: 1px">L:</span>
-                                <input name="l" id="l" type="text"  placeholder="请输入数字" style="width: 100px">
+                                <input name="l" id="l" type="text" placeholder="请输入数字" style="width: 100px">
                                 <span id="ll" style="color: red;font-size: 18px;display: none">请输入0-100之间的数L</span>
                             </td>
                             <td>
                                    <span style="width: 10px;padding-left: 30px ">
                                    材质名称:
                                 </span>
-                                <select  data-placeholder="材质" name="materialName"
-                                         id="materialName" tabindex="2" aria-invalid="false" style="width: 100px">
+                                <select data-placeholder="材质" name="materialName"
+                                        id="materialName" tabindex="2" aria-invalid="false" style="width: 100px">
                                     <option value="0">全部</option>
                                     <% for(var i = 0;i < com.biz.materialList.length;i++){ %>
                                         <option value="<%= com.biz.materialList[i].name %>"><%= com.biz.materialList[i].name %></option>
@@ -39,71 +40,75 @@
                         </tr>
                         <tr class="mtable">
                             <td>
-                            <span>A:  </span>
-                            <input name="a" id="a" type="text"  placeholder="请输入数字" style="width: 100px">
-                            <span id="aa" style="color: red;font-size: 18px;display: none">请输入-128-127之间的数A</span>
+                                <span>A:  </span>
+                                <input name="a" id="a" type="text" placeholder="请输入数字" style="width: 100px">
+                                <span id="aa" style="color: red;font-size: 18px;display: none">请输入-128-127之间的数A</span>
                             </td>
                             <td>
                                 <span style="width: 10px;padding-left: 30px">
                                    光源名称:
                                 </span>
-                                <select  data-placeholder="光源名称" id="illuminantName"
-                                         name="illuminantName" tabindex="2" aria-invalid="false" disabled="disabled"
-                                         style="width: 100px; background-color: #EEEEEE;width: 100px">
+                                <select data-placeholder="光源名称" id="illuminantName"
+                                        name="illuminantName" tabindex="2" aria-invalid="false" disabled="disabled"
+                                        style="width: 100px; background-color: #EEEEEE;width: 100px">
                                     <option value="0">全部</option>
                                     <% for(var i = 0;i < com.biz.illuminantList.length;i++){ %>
                                         <option readonly="readonly"
-                                                value="<%= com.biz.illuminantList[2].name %>" selected><%= com.biz.illuminantList[2].name %></option>
+                                                value="<%= com.biz.illuminantList[2].name %>"
+                                                selected><%= com.biz.illuminantList[2].name %></option>
                                     <% } %>
                                 </select>
                             </td>
                         </tr>
                         <tr class="mtable">
                             <td>
-                            <span>B:  </span>
-                            <input name="b" id="b" type="text"  placeholder="请输入数字" style="width: 100px">
-                            <span id="bb" style="color: red;font-size: 18px;display: none">请输入-128-127之间的数B</span>
+                                <span>B:  </span>
+                                <input name="b" id="b" type="text" placeholder="请输入数字" style="width: 100px">
+                                <span id="bb" style="color: red;font-size: 18px;display: none">请输入-128-127之间的数B</span>
                             </td>
-                            <td >
+                            <td>
                                  <span style="width: 10px;padding-left: 30px ">
                                    光源角度:
                                 </span>
-                                <select  data-placeholder="光源角度" name="angle"
-                                         id="angle" tabindex="2" aria-invalid="false" style="width: 100px">
+                                <select data-placeholder="光源角度" name="angle"
+                                        id="angle" tabindex="2" aria-invalid="false" style="width: 100px">
                                     <option value="0">全部</option>
                                     <% for(var i = 0;i < com.biz.angleList.length;i++){ %>
-                                        <option value="<%= com.biz.angleList[i].angle %>" selected><%= com.biz.angleList[i].angle %> 度角</option>
+                                        <option value="<%= com.biz.angleList[i].angle %>"
+                                                selected><%= com.biz.angleList[i].angle %> 度角
+                                        </option>
                                     <% } %>
                                 </select>
                             </td>
 
                         </tr>
-                        <tr class="mtable" >
+                        <tr class="mtable">
                             <td>
-                                <span style="margin-left: -4px">dE:</span><input name="evl" id="evl" type="text"  placeholder="默认值" style="width: 100px">
+                                <span style="margin-left: -4px">dE:</span><input name="evl" id="evl" type="text"
+                                                                                 placeholder="默认值" style="width: 100px">
                             </td>
                             <td>
                                      <span style="width: 10px;padding-left: 30px">
                                    配方类型:
                                     </span>
-                                <select  data-placeholder="配方类型" name="type" id="type"
-                                         tabindex="2" aria-invalid="false" style="width: 100px">
+                                <select data-placeholder="配方类型" name="type" id="type"
+                                        tabindex="2" aria-invalid="false" style="width: 100px">
                                     <option value="0" selected>全部</option>
                                     <% for(var i = 0;i < com.biz.typeList.length;i++){ %>
-                                        <option value="<%= com.biz.typeList[i].type %>" <%= com.biz.typeList[i].type==0?"selected":"" %> ><%= com.biz.typeList[i].name %></option>
+                                        <option value="<%= com.biz.typeList[i].type %>" <%= com.biz.typeList[i].type == 0 ? "selected" : "" %> ><%= com.biz.typeList[i].name %></option>
                                     <% } %>
                                 </select>
                             </td>
                         </tr>
 
                     </table>
-                    <div class="columns pull-left" style="margin-left:9%;">
-                        <button class="btn btn-success" onclick="OnMeasurementColor()" id="MeasurementButton"
+                    <div class="columns pull-left" style="margin-left:80px;visibility:hidden" id="MeasurementButton">
+                        <button class="btn btn-success" onclick="OnMeasurementColor()"
                                 style="background-color: #00B83F;margin-top: -140px;margin-left:240px;width: 80px;height: 60px;">
                             测色
                         </button>
                     </div>
-                    <div class="columns pull-left" style="margin-left:9%;">
+                    <div class="columns pull-left" style="margin-left:80px;">
                         <button class="btn btn-success" onclick="reLoad()"
                                 style="margin-top: -140px;width: 80px;height: 60px;margin-left:-60px">查找
                         </button>
@@ -154,7 +159,7 @@
                                 a: $('#a').val() || 0,
                                 b: $('#b').val() || 0,
                                 type: $('#type').val() || 0,
-                                angle:$('#angle').val() || 0,
+                                angle: $('#angle').val() || 0,
                                 illuminantName: $('#illuminantName').val() || '',
                                 materialName: $('#materialName').val() || '',
                                 evl: $('#evl').val() || 1,
@@ -195,10 +200,10 @@
                                 if (value == '1') {
                                     return "车间配方";
 
-                                }else  if (value == '0') {
+                                } else if (value == '0') {
                                     return "实验室配方";
 
-                                }else {
+                                } else {
                                     return "不详";
                                 }
                             }
@@ -306,10 +311,10 @@
                             align: 'center',
                             title: '浓度(%)',
                             formatter: function (value, row, index) {
-                                if (value.length > 0 && value.length==3) {
+                                if (value.length > 0 && value.length == 3) {
                                     return value[2].concentration;
                                 }
-                                if (value.length >3 ) {
+                                if (value.length > 3) {
                                     var a = '<a href="javascript:void(0);" mce_href="#"  title="浓度" onclick="showAll(' + row.id + ')">...</i></a> ';
                                     return a;
                                 }
@@ -403,7 +408,8 @@
     }
 
     function showMeasurementButton() {
-        $("#MeasurementButton").show()
+
+        $("#MeasurementButton").attr("style"," margin-left:80px;visibility:visible");
     }
 
     //验证字符串是否是数字
