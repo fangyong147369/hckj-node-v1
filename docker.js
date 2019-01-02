@@ -1,7 +1,7 @@
 'use strict';
 var  redisPort=6379;
-var  redisHost="127.0.0.1";
-var  corePath="http://127.0.0.1:8080/sys_api-1.0.0.0"
+var  redisHost="192.168.2.68";
+var  corePath="http://192.168.2.68:8080/sys_api-1.0.0.0"
 var Koa = require('koa');
 const app = new Koa();
 const logger = require('koa-logger');//日志打印
