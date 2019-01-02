@@ -1,4 +1,7 @@
 'use strict';
+var  redisPort=6379;
+var  redisHost="127.0.0.1";
+var  corePath="http://127.0.0.1:8080/sys_api-1.0.0.0"
 var Koa = require('koa');
 const app = new Koa();
 const logger = require('koa-logger');//日志打印
@@ -26,8 +29,8 @@ app.use(session({
         signed: true
     },
     store: redisStore({
-        host: "192.168.2.68",
-        port: 6379,
+        host: redisHost,
+        port: redisPort,
         database: 0,
         prefix: "/",
         ttl: 60*1000
@@ -36,7 +39,7 @@ app.use(session({
     .use(router.routes())
     .use(router.allowedMethods())
 //  global.core_path="http://localhost:8080/sys_api-1.0.0.0";//测试环境
- global.core_path="http://192.168.2.68:8080/sys_api-1.0.0.0";//测试环境
+ global.core_path=corePath;//测试环境
  // global.core_path="http://localhost:8080";//开发环境
 console.log(__dirname);
 console.log(path.dirname(__dirname));
@@ -102,5 +105,7 @@ app.on('error', function (err) {
 
 
 app.listen(4700, () => {
+    console.log('serverUrl:'+global.core_path)
+    console.log('redisHost:'+redisHost+"       redisPort:"+redisPort)
     console.log('node 服务端口号:4700  from Docker')
 })
